@@ -1,0 +1,89 @@
+Case de estágio Taqtile - Larissa Dias da Silva
+
+Referências para o Desafio Pokedex - Taqtile
+Este documento detalha as fontes consultadas e as decisões tomadas durante a resolução do desafio, incluindo as adaptações devido a problemas específicos do ambiente.
+
+
+1. Documentação Oficial das Tecnologias Principais:
+React Native:
+
+Documentação Oficial: https://reactnative.dev/docs
+
+FlatList: https://reactnative.dev/docs/flatlist
+
+StyleSheet: https://reactnative.dev/docs/stylesheet
+
+Share API (para compartilhamento): https://reactnative.dev/docs/share
+
+Tutorial de como usar Snack: https://www.youtube.com/watch?v=dtUMDXz9Z6Y
+
+Exemplo de aplicação: https://www.youtube.com/watch?v=f8Z9JyB2EIE
+
+
+React Navigation:
+
+Documentação Oficial: https://reactnavigation.org/docs/
+
+Getting Started: https://reactnavigation.org/docs/getting-started/
+
+Stack Navigator: https://reactnavigation.org/docs/stack-navigator/
+
+route prop (para parâmetros de tela): https://reactnavigation.org/docs/5.x/route-prop/
+
+useNavigation hook: https://reactnavigation.org/docs/use-navigation/
+
+headerLeft (customizar botão de voltar): https://reactnavigation.org/docs/header-buttons/ (e procurar por headerLeft)
+
+tutorial: https://www.youtube.com/watch?v=XoumiwHbKDg
+
+Styled Components (Tentativa e Análise):
+
+Documentação Oficial: https://styled-components.com/docs
+
+React Native Integration: https://styled-components.com/docs/basics
+
+Expo:
+
+Documentação Oficial: https://docs.expo.dev/
+
+Expo Snack: https://snack.expo.dev/
+
+expo-constants: https://docs.expo.dev/versions/latest/sdk/constants/
+
+@expo/vector-icons: https://docs.expo.dev/guides/icons/
+
+expo-font e @expo-google-fonts: https://docs.expo.dev/versions/latest/sdk/font/ e https://github.com/expo/google-fonts
+
+APIs de Dados:
+
+PokeAPI: https://pokeapi.co/docs/v2
+
+JSONPlaceholder (API de teste): https://jsonplaceholder.typicode.com/
+
+Fetch API (para requisições HTTP): https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch
+
+2. Cenários Específicos e Resolução de Problemas (Critério de Avaliação):
+Esta seção é crucial, pois aborda como os desafios foram superados.
+
+Problema 1: Conflitos na Configuração e Transpilação de styled-components no Expo Snack (Build Nativa):
+
+Detalhes: Durante o desenvolvimento, o styled-components apresentou erros persistentes ("Document" doesn't exist, _styledComponents.default.View is not a function), especialmente ao tentar rodar em dispositivos nativos ou simuladores. Várias tentativas de depuração foram feitas (verificação de package.json, diferentes versões, limpeza de cache do Snack, criação de novos Snacks, uso de styled-components/native e styled(Componente)).
+
+Solução: A versão inicial que estava salva de styled components 5.1.1 foi mudada para uma versão mais atualizada.
+
+Problema 2: Acesso à PokeAPI Bloqueado Localmente:
+
+Detalhes: Houve uma impossibilidade de acessar a PokeAPI (pokeapi.co) diretamente do navegador e do aplicativo, mesmo quando a API estava globalmente online (verificado via ferramentas de status online). Isso indicou um bloqueio de rede local (firewall, VPN, ISP).
+
+Solução Inicial de Contorno: Para não interromper o desenvolvimento, a JSONPlaceholder API foi utilizada temporariamente como fonte de dados.
+
+Solução Final: Após um tempo, o acesso à PokeAPI foi restabelecido, permitindo o retorno ao uso da API original para o desafio.
+
+Problema 3: Interpretação de Design do Figma e Adaptação Responsiva:
+
+Detalhes: Houve uma curva de aprendizado e depuração na tradução de coordenadas absolutas de design (Figma top, left, width, height em pixels fixos) para o modelo de layout Flexbox responsivo do React Native. Houve também conflitos entre as descrições textuais e as imagens visuais do Figma.
+
+Solução: Foco na replicação do efeito visual e das proporções usando Flexbox, position: 'absolute' (seletivamente) e cálculos de marginTop/paddingTop para sobreposições, garantindo que o layout se adapte a diferentes telas.
+
+
+
